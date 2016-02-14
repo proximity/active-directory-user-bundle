@@ -49,6 +49,6 @@ Tell the bundle what parameters to use for accessing your Active Directory insta
 
 ```yaml
 # app/config/config.yml
-proximity_active_directory_user:
+prox_ad_user:
     ldap_host: 'your.ldap.host'
 ```

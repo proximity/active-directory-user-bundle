@@ -5,8 +5,8 @@ The ProximityActiveDirectoryUserBundle is a Symfony3 bundle that attempt to ease
 
 ## Documentation
 
- 1. [Installation](/#Installation)
- 2. [Usage](/#Usage)
+ 1. [Installation](/#installation)
+ 2. [Usage](/#usage)
 
 ### Installation
 
@@ -41,4 +41,14 @@ public function registerBundles()
         // ...
     );
 }
+```
+
+#### Configure your Active Directory details
+
+Tell the bundle what parameters to use for accessing your Active Directory instance:
+
+```yaml
+# app/config/config.yml
+proximity_active_directory_user:
+    ldap_host: 'your.ldap.host'
 ```

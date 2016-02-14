@@ -1,6 +1,6 @@
 <?php
 
-namespace Proximity\LdapUserBundle\Security;
+namespace Proximity\ActiveDirectoryUserBundle\Security;
 
 use Symfony\Component\Debug\Exception\ContextErrorException;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
-class LdapAuthenticator implements SimpleFormAuthenticatorInterface
+class ActiveDirectoryAuthenticator implements SimpleFormAuthenticatorInterface
 {
 
     const LDAP_CONN_STRING = 'CN=%s,OU=Proximity WGN,DC=nz,DC=local';

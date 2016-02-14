@@ -1,10 +1,10 @@
 <?php
-namespace Proximity\LdapUserBundle\Security\User;
+namespace Proximity\ActiveDirectoryUserBundle\Security\User;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 
-class LdapUser implements UserInterface, EquatableInterface
+class ActiveDirectoryUser implements UserInterface, EquatableInterface
 {
     private $username;
     private $roles;
@@ -40,7 +40,7 @@ class LdapUser implements UserInterface, EquatableInterface
 
     public function isEqualTo(UserInterface $user)
     {
-        if (!$user instanceof LdapUser) {
+        if (!$user instanceof ActiveDirectoryUser) {
             return false;
         }
 

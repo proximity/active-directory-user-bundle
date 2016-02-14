@@ -1,24 +1,24 @@
 <?php
 
-namespace Proximity\LdapUserBundle\Security\User;
+namespace Proximity\ActiveDirectoryUserBundle\Security\User;
 
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 
-class LdapUserProvider implements UserProviderInterface
+class ActiveDirectoryUserProvider implements UserProviderInterface
 {
     public function loadUserByUsername($username)
     {
         // @todo: find a way to plug user function functionality
+        // @todo: check if user exists
 
-        // We're not even checking if the user exists because the version of of the ldap doesn't allow us to do so
-        return new LdapUser($username);
+        return new ActiveDirectoryUser($username);
     }
 
     public function refreshUser(UserInterface $user)
     {
-        if (!$user instanceof LdapUser) {
+        if ( ! $user instanceof ActiveDirectoryUser) {
             throw new UnsupportedUserException(
                 sprintf('Instances of "%s" are not supported.', get_class($user))
             );
@@ -29,7 +29,7 @@ class LdapUserProvider implements UserProviderInterface
 
     public function supportsClass($class)
     {
-        return $class === LdapUser::class;
+        return $class === ActiveDirectoryUser::class;
     }
 
 }

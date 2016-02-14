@@ -1,6 +1,6 @@
 <?php
 
-namespace Proximity\LdapUserBundle\DependencyInjection;
+namespace Proximity\ActiveDirectoryUserBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode    = $treeBuilder->root('proximity_ldap_user');
+        $rootNode    = $treeBuilder->root('proximity_active_directory_user');
 
         $rootNode
             ->children()

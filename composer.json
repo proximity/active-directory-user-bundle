@@ -20,7 +20,6 @@
             "Proximity\\ActiveDirectoryBBundle" : ""
         }
     },
-    "target-dir" : "Proximity/ActiveDirectoryBundle",
     "repositories" : [{
     }]
 }

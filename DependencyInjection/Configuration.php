@@ -18,11 +18,13 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('proximity_ldap_user');
+        $rootNode    = $treeBuilder->root('proximity_ldap_user');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+                ->scalarNode('ldap_host')->end()
+            ->end();
+
 
         return $treeBuilder;
     }

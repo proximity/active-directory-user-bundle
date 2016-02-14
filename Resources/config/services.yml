@@ -1,4 +1,8 @@
 services:
-#    proximity_ldap_user.example:
-#        class: Proximity\LdapUserBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    proximity_ldap_user.user_provider:
+        class: Proximity\LdapUserBundle\Security\User\LdapUserProvider
+
+    proximity_ldap_user.authenticator:
+        class:     Proximity\LdapUserBundle\Security\LdapAuthenticator
+        calls:
+            - [ setHost, [ %ldap_host% ] ]

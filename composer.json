@@ -1,0 +1,26 @@
+{
+    "name": "proximity/active-directory-user-bundle",
+    "description": "A bundle to ease user authentication through Active Directory",
+    "type": "symfony-bundle",
+    "require": {
+        "symfony/symfony": "^3.0"
+    },
+    "require-dev": {
+        "symfony/symfony": "^3.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Proximity",
+            "email": "contact@proximity.co.nz"
+        }
+    ],
+    "autoload" : {
+        "psr-0" : {
+            "Proximity\\ActiveDirectoryBBundle" : ""
+        }
+    },
+    "target-dir" : "Proximity/ActiveDirectoryBundle",
+    "repositories" : [{
+    }]
+}

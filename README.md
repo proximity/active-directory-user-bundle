@@ -49,11 +49,14 @@ Tell the bundle what parameters to use for accessing your Active Directory insta
 
 ```yaml
 # app/config/config.yml
-prox_ad_user:
+imports:
+    # ...
+    - { resource: '@ProximityActiveDirectoryUserBundle/Resources/config/security.xml' }
+proximity_active_directory_user:
     ldap_host: 'your.ldap.host'
 ```
 
-#### Configure the Security user provider
+#### Configure the security.yml
 
 ```yaml
 # app/config/security.yml
@@ -62,5 +65,12 @@ security:
 
     providers:
         active_directory:
-            id: prox_ad_user.user_provider
+            id: proximity_active_directory_user.user_provider
+    # use the authenticator for your firewall. Example with simple_form:
+    firewalls:
+        # ...
+        default:
+        # ...
+            simple_form:
+                authenticator: proximity_active_directory_user.authenticator
 ```

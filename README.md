@@ -9,7 +9,7 @@ The ProximityActiveDirectoryUserBundle is a Symfony3 bundle that attempt to ease
 
 #### Get the bundle using composer
 
-The bundle is not yet deployed on packagist. Start by requiering the bundle to your composer.json file as vcs:
+The bundle is not yet deployed on packagist. Start by requiring the bundle to your composer.json file as vcs:
 
 ```json
 // composer.json

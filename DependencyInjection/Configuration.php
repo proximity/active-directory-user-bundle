@@ -23,6 +23,10 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('ldap_host')->isRequired()->end()
+                ->scalarNode('organizational_unit')->isRequired()->end()
+                ->arrayNode('domain_components')
+                    ->prototype('scalar')->end()
+                ->end()
             ->end();
 
 

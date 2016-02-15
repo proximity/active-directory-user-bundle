@@ -23,6 +23,8 @@ class ProximityActiveDirectoryUserExtension extends Extension
         $config        = $this->processConfiguration($configuration, $configs);
 
         $container->setParameter('proximity_active_directory_user.ldap_host', $config['ldap_host']);
+        $container->setParameter('proximity_active_directory_user.organizational_unit', $config['organizational_unit']);
+        $container->setParameter('proximity_active_directory_user.domain_components', $config['domain_components']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');

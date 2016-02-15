@@ -14,13 +14,36 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 class ActiveDirectoryAuthenticator implements SimpleFormAuthenticatorInterface
 {
 
-    const LDAP_CONN_STRING = 'CN=%s,OU=Proximity WGN,DC=nz,DC=local';
+    const LDAP_CONN_STRING = 'CN=%s,OU=%s,DC=';
 
-    private $ldapHost;
+    protected $ldapHost;
+
+    protected $organizationalUnit;
+
+    protected $domainComponents;
 
     public function setHost($host)
     {
         $this->ldapHost = $host;
+    }
+
+    public function setOrganizationalUnit($organizationalUnit)
+    {
+        $this->organizationalUnit = $organizationalUnit;
+    }
+
+    public function setDomainComponents($domainComponents)
+    {
+        $this->domainComponents = $domainComponents;
+    }
+
+    protected function getConnectionString($username)
+    {
+        return sprintf(
+            self::LDAP_CONN_STRING.implode(',DC=', $this->domainComponents),
+            $username,
+            $this->organizationalUnit
+        );
     }
 
     public function authenticateToken(TokenInterface $token, UserProviderInterface $userProvider, $providerKey)
@@ -33,11 +56,9 @@ class ActiveDirectoryAuthenticator implements SimpleFormAuthenticatorInterface
 
         // Load from ldap
         $ds = ldap_connect($this->ldapHost);
-        $dn = sprintf(self::LDAP_CONN_STRING, $user->getUsername());
+        $dn = $this->getConnectionString($user->getUsername());
         try {
             if (ldap_bind($ds, $dn, $token->getCredentials())) {
-
-
                 return new UsernamePasswordToken(
                     $user,
                     $token->getCredentials(),

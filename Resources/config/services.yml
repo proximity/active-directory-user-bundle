@@ -7,3 +7,5 @@ services:
         class:     Proximity\ActiveDirectoryUserBundle\Security\ActiveDirectoryAuthenticator
         calls:
             - [ setHost, [ %proximity_active_directory_user.ldap_host% ] ]
+            - [ setOrganizationalUnit, [ %proximity_active_directory_user.organizational_unit% ] ]
+            - [ setDomainComponents, [ %proximity_active_directory_user.domain_components% ] ]

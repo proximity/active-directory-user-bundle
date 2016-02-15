@@ -46,27 +46,19 @@ Tell the bundle what parameters to use for accessing your Active Directory insta
 
 ```yaml
 # app/config/config.yml
-imports:
-    # ...
-    - { resource: '@ProximityActiveDirectoryUserBundle/Resources/config/security.xml' }
-    # ...
+# ...
 proximity_active_directory_user:
     ldap_host: 'your.ldap.host'
     organizational_unit: 'Your OU'
     domain_components: [ 'acme_dc', 'another_dc' ]
 ```
 
-#### Configure the security.yml
+#### Configure the security.yml to use the authenticator
 
 ```yaml
 # app/config/security.yml
 security:
     # ...
-
-    providers:
-        active_directory:
-            id: proximity_active_directory_user.user_provider
-    # use the authenticator for your firewall. Example with simple_form:
     firewalls:
         # ...
         default:
@@ -74,3 +66,5 @@ security:
             simple_form:
                 authenticator: proximity_active_directory_user.authenticator
 ```
+
+This bundle does not come with a user provider or any login functionality since creating a user entity is up to each project logic. Refer to the [Symfony doc](http://symfony.com/doc/current/cookbook/security/custom_provider.html).

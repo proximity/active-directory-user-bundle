@@ -5,9 +5,6 @@ The ProximityActiveDirectoryUserBundle is a Symfony3 bundle that attempt to ease
 
 ## Documentation
 
- 1. [Installation](/#installation)
- 2. [Usage](/#usage)
-
 ### Installation
 
 #### Get the bundle using composer

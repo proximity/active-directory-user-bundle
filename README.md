@@ -52,6 +52,8 @@ imports:
     # ...
 proximity_active_directory_user:
     ldap_host: 'your.ldap.host'
+    organizational_unit: 'Your OU'
+    domain_components: [ 'acme_dc', 'another_dc' ]
 ```
 
 #### Configure the security.yml

@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode    = $treeBuilder->root('prox_ad_user');
+        $rootNode    = $treeBuilder->root('proximity_active_directory_user');
 
         $rootNode
             ->children()

@@ -7,7 +7,7 @@ use Symfony\Component\Security\Core\User\EquatableInterface;
 class ActiveDirectoryUser implements UserInterface, EquatableInterface
 {
     private $username;
-    private $roles;
+    private $roles = array();
 
     public function __construct($username)
     {
@@ -21,7 +21,7 @@ class ActiveDirectoryUser implements UserInterface, EquatableInterface
 
     public function getPassword()
     {
-        return;
+        return '';
     }
 
     public function getSalt()
@@ -40,7 +40,7 @@ class ActiveDirectoryUser implements UserInterface, EquatableInterface
 
     public function isEqualTo(UserInterface $user)
     {
-        if (!$user instanceof ActiveDirectoryUser) {
+        if ( ! $user instanceof ActiveDirectoryUser) {
             return false;
         }
 

@@ -22,7 +22,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('ldap_host')->end()
+                ->scalarNode('ldap_host')->isRequired()->end()
             ->end();
 
 

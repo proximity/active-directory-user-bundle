@@ -36,6 +36,8 @@ class ActiveDirectoryAuthenticator implements SimpleFormAuthenticatorInterface
         $dn = sprintf(self::LDAP_CONN_STRING, $user->getUsername());
         try {
             if (ldap_bind($ds, $dn, $token->getCredentials())) {
+
+
                 return new UsernamePasswordToken(
                     $user,
                     $token->getCredentials(),

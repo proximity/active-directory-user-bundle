@@ -1,8 +1,9 @@
 services:
+
     proximity_active_directory_user.user_provider:
         class: Proximity\ActiveDirectoryUserBundle\Security\User\ActiveDirectoryUserProvider
 
     proximity_active_directory_user.authenticator:
         class:     Proximity\ActiveDirectoryUserBundle\Security\ActiveDirectoryAuthenticator
         calls:
-            - [ setHost, [ %ldap_host% ] ]
+            - [ setHost, [ %proximity_active_directory_user.ldap_host% ] ]

@@ -52,6 +52,7 @@ Tell the bundle what parameters to use for accessing your Active Directory insta
 imports:
     # ...
     - { resource: '@ProximityActiveDirectoryUserBundle/Resources/config/security.xml' }
+    # ...
 proximity_active_directory_user:
     ldap_host: 'your.ldap.host'
 ```

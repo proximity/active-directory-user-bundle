@@ -52,3 +52,15 @@ Tell the bundle what parameters to use for accessing your Active Directory insta
 prox_ad_user:
     ldap_host: 'your.ldap.host'
 ```
+
+#### Configure the Security user provider
+
+```yaml
+# app/config/security.yml
+security:
+    # ...
+
+    providers:
+        active_directory:
+            id: prox_ad_user.user_provider
+```

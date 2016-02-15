@@ -1,6 +1,0 @@
-security:
-    providers:
-        prox_ad_user_provider:
-            id: proximity_active_directory_user.user_provider
-    encoders:
-       Proximity\ActiveDirectoryUserBundle\Security\User\ActiveDirectoryUser: plaintext
